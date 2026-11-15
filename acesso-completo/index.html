@@ -47,8 +47,13 @@
 </div>
 </section>
 <section id="resultado" class="oculto"><div class="res-card" id="resCard"></div></section>
+<section id="leitor" class="oculto">
+<div class="leitor-topo"><button class="btn branco" onclick="fecharPdf()">✕</button><b id="leitorTitulo"></b><a class="btn" id="leitorBaixar" href="#" download>⬇️ Descarregar</a></div>
+<div id="leitorPaginas"></div>
+</section>
 <div id="toast"></div>
 <canvas id="confetes"></canvas>
+<script src="/acesso/vendor/pdf.min.js"></script>
 <script src="/acesso/config.js"></script>
 <script src="/acesso/app.js"></script>
 </body></html>

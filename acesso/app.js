@@ -186,7 +186,8 @@ function renderPdfs(){
         h+=`<div class="mat ${f?"feito":""}">
           <button class="cx" onclick="marcaPdf('${k}')" title="Marcar como feito">${f?"✓":""}</button>
           <div class="mat-info"><b>${it.nome}</b><small>${[it.desc,it.pag?it.pag+" páginas":""].filter(Boolean).join(" · ")}${f?" · ⭐ feito":" · +30 XP"}</small></div>
-          <a class="btn mat-bt" href="${it.arq}" target="_blank" rel="noopener">Abrir</a></div>`;
+          <div class="mat-acoes"><button class="btn mat-bt" onclick="abrirPdf('${kit.id}',${gi},${ii})">Abrir</button>
+          <a class="btn branco mat-bt" href="${it.arq}" download title="Descarregar">⬇️</a></div></div>`;
       });
     });
     h+=`</div>`;
@@ -213,6 +214,8 @@ function renderConquistas(){
     <h3 style="margin:4px 0 10px">Medalhas (${S.medalhas.length}/${MEDALHAS.length})</h3><div class="medalhas">`;
   MEDALHAS.forEach(m=>{h+=`<div class="medalha ${S.medalhas.includes(m.id)?"":"nao"}"><div class="ic">${m.ic}</div><b>${m.nome}</b><small>${m.desc}</small></div>`});
   h+=`</div><p style="text-align:center;margin-top:18px;color:var(--suave);font-weight:700;font-size:14px">${lic} lições concluídas · ${S.xp} XP no total</p>
+  <p style="text-align:center;margin-top:14px;color:var(--suave);font-weight:600;font-size:13px">📱 O progresso fica guardado só neste aparelho. Cada telemóvel ou computador tem o seu.</p>
+  <p style="text-align:center;margin-top:8px"><button onclick="recomecar()" style="background:none;color:var(--suave);font-weight:700;text-decoration:underline;font-size:13px">Recomeçar do zero neste aparelho</button></p>
 `;
   $("#abaConquistas").innerHTML=h;
 }
@@ -383,6 +386,43 @@ function terminaLicao(){
   $("#resultado").classList.remove("oculto");
   confetes(est===3?180:90);
 }
+
+
+/* =====================================================================
+   LEITOR DE PDF (funciona dentro do WhatsApp/Instagram e no Android)
+   ===================================================================== */
+let leitorDoc=null,leitorObs=null;
+function abrirPdf(kid,gi,ii){
+  const it=CONFIG.materiais[kid][gi].itens[ii];
+  $("#leitorTitulo").textContent=it.nome;
+  $("#leitorBaixar").href=it.arq;
+  const pg=$("#leitorPaginas");pg.innerHTML=`<div class="leitor-msg">A abrir o PDF…</div>`;
+  $("#leitor").classList.remove("oculto");document.body.style.overflow="hidden";
+  if(!window.pdfjsLib){pg.innerHTML=`<div class="leitor-msg">Não foi possível abrir aqui.<br><a class="btn" href="${it.arq}" download>⬇️ Descarregar PDF</a></div>`;return}
+  pdfjsLib.GlobalWorkerOptions.workerSrc="/acesso/vendor/pdf.worker.min.js";
+  pdfjsLib.getDocument(it.arq).promise.then(doc=>{
+    leitorDoc=doc;pg.innerHTML="";
+    if(leitorObs)leitorObs.disconnect();
+    leitorObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)desenhaPagina(e.target)}),{root:pg,rootMargin:"600px 0px"});
+    for(let n=1;n<=doc.numPages;n++){
+      const d=document.createElement("div");d.className="leitor-pag";d.dataset.n=n;d.innerHTML=`<span>${n}</span>`;
+      pg.appendChild(d);leitorObs.observe(d);
+    }
+  }).catch(()=>{pg.innerHTML=`<div class="leitor-msg">Não foi possível abrir aqui.<br><a class="btn" href="${it.arq}" download>⬇️ Descarregar PDF</a></div>`});
+}
+function desenhaPagina(el){
+  if(el.dataset.ok||!leitorDoc)return;el.dataset.ok=1;const doc=leitorDoc;
+  doc.getPage(+el.dataset.n).then(p=>{
+    if(doc!==leitorDoc)return;
+    const w=el.clientWidth||320,v1=p.getViewport({scale:1}),dpr=Math.min(window.devicePixelRatio||1,2);
+    const vp=p.getViewport({scale:w/v1.width*dpr});
+    const c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;
+    p.render({canvasContext:c.getContext("2d"),viewport:vp}).promise.then(()=>{el.innerHTML="";el.appendChild(c);el.style.height="auto"});
+  });
+}
+function fecharPdf(){$("#leitor").classList.add("oculto");document.body.style.overflow="";if(leitorObs)leitorObs.disconnect();if(leitorDoc){leitorDoc.destroy();leitorDoc=null}$("#leitorPaginas").innerHTML=""}
+
+function recomecar(){if(confirm("Apagar as estrelas, XP e medalhas deste aparelho e começar do zero?")){S=novoEstado();guardar();render();irAba("pdfs")}}
 
 /* =====================================================================
    TOAST + CONFETES
