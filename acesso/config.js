@@ -24,8 +24,17 @@ window.CONFIG = {
         { nome: "Caderno Alfabeto com Carinhas", pag: 28, arq: "/acesso/pdfs/kit1/Bonus-06_Caderno-Alfabeto-com-Carinhas.pdf" }
       ]}
     ],
-    // Kit 2 (upsell): coloque os PDFs em /acesso/pdfs/kit2/ e liste aqui
-    kit2: []
+    // Kit 2 (upsell) — só aparece em /acesso-completo
+    kit2: [
+      { grupo: "📚 Atividades principais", itens: [
+        { nome: "Parte A · Sílabas Difíceis", pag: 44, arq: "/acesso/pdfs/kit2/Continuacao_Parte-A_Silabas-Dificeis.pdf" },
+        { nome: "Parte B · Primeiros Textos", pag: 14, arq: "/acesso/pdfs/kit2/Continuacao_Parte-B_Primeiros-Textos.pdf" }
+      ]},
+      { grupo: "🎁 Extras", itens: [
+        { nome: "Caderno Ligar Ideias", pag: 14, arq: "/acesso/pdfs/kit2/Continuacao_Extra_Caderno-Ligar-Ideias.pdf" },
+        { nome: "Caderno de Grafomotricidade", pag: 14, arq: "/acesso/pdfs/kit2/Continuacao_Extra_Caderno-de-Grafomotricidade.pdf" }
+      ]}
+    ]
   },
   // Página de compra do Kit 2 (aparece para quem só tem o Kit 1)
   linkUpsell: "https://pay.hotmart.com/O108500810E?checkoutMode=10",
