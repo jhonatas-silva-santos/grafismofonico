@@ -1,6 +1,7 @@
 {
   "headers": [
     { "source": "/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] },
+    { "source": "/(acesso|acesso-completo)/?", "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }] },
     { "source": "/acesso/pdfs/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] }
   ]
 }

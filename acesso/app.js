@@ -392,14 +392,31 @@ function terminaLicao(){
    LEITOR DE PDF (funciona dentro do WhatsApp/Instagram e no Android)
    ===================================================================== */
 let leitorDoc=null,leitorObs=null;
+// Garante que o leitor existe mesmo se o navegador guardou uma versão antiga da página
+function garanteLeitor(){
+  if(document.getElementById("leitor"))return;
+  const s=document.createElement("section");s.id="leitor";s.className="oculto";
+  s.innerHTML=`<div class="leitor-topo"><button class="btn branco" onclick="fecharPdf()">✕</button><b id="leitorTitulo"></b><a class="btn" id="leitorBaixar" href="#" download>⬇️ Descarregar</a></div><div id="leitorPaginas"></div>`;
+  document.body.appendChild(s);
+}
+function carregaPdfJs(){
+  return new Promise(ok=>{
+    if(window.pdfjsLib)return ok(true);
+    const sc=document.createElement("script");sc.src="/acesso/vendor/pdf.min.js?v=3";
+    sc.onload=()=>ok(!!window.pdfjsLib);sc.onerror=()=>ok(false);document.head.appendChild(sc);
+  });
+}
 function abrirPdf(kid,gi,ii){
+  garanteLeitor();
   const it=CONFIG.materiais[kid][gi].itens[ii];
   $("#leitorTitulo").textContent=it.nome;
   $("#leitorBaixar").href=it.arq;
   const pg=$("#leitorPaginas");pg.innerHTML=`<div class="leitor-msg">A abrir o PDF…</div>`;
   $("#leitor").classList.remove("oculto");document.body.style.overflow="hidden";
-  if(!window.pdfjsLib){pg.innerHTML=`<div class="leitor-msg">Não foi possível abrir aqui.<br><a class="btn" href="${it.arq}" download>⬇️ Descarregar PDF</a></div>`;return}
-  pdfjsLib.GlobalWorkerOptions.workerSrc="/acesso/vendor/pdf.worker.min.js";
+  const falha=()=>{pg.innerHTML=`<div class="leitor-msg">Não foi possível abrir aqui.<br><a class="btn" href="${it.arq}" target="_blank" rel="noopener">Abrir noutra aba</a> <a class="btn" href="${it.arq}" download>⬇️ Descarregar</a></div>`};
+  carregaPdfJs().then(okLib=>{
+  if(!okLib)return falha();
+  pdfjsLib.GlobalWorkerOptions.workerSrc="/acesso/vendor/pdf.worker.min.js?v=3";
   pdfjsLib.getDocument(it.arq).promise.then(doc=>{
     leitorDoc=doc;pg.innerHTML="";
     if(leitorObs)leitorObs.disconnect();
@@ -408,7 +425,8 @@ function abrirPdf(kid,gi,ii){
       const d=document.createElement("div");d.className="leitor-pag";d.dataset.n=n;d.innerHTML=`<span>${n}</span>`;
       pg.appendChild(d);leitorObs.observe(d);
     }
-  }).catch(()=>{pg.innerHTML=`<div class="leitor-msg">Não foi possível abrir aqui.<br><a class="btn" href="${it.arq}" download>⬇️ Descarregar PDF</a></div>`});
+  }).catch(falha);
+  });
 }
 function desenhaPagina(el){
   if(el.dataset.ok||!leitorDoc)return;el.dataset.ok=1;const doc=leitorDoc;
