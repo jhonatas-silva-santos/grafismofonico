@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-PT"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Área de Membros · Grafismo Fónico</title><link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/acesso/app.css"><script>window.ACESSO_KITS=["kit1"];</script></head>
+<body>
+<!-- ============ APP ============ -->
+<section id="app">
+<header>
+<div class="topo">
+<div class="avatar">🐸</div>
+<div class="quem">
+<b id="hNome">Área de Membros</b>
+<small id="hNivel">Nível 1</small>
+<div class="nivel-barra"><i id="hBarra" style="width:0"></i></div>
+</div>
+<div class="chips">
+<span class="chip" title="Dias seguidos">🔥 <span id="hStreak">0</span></span>
+<span class="chip estrela" title="Estrelas">⭐ <span id="hEstrelas">0</span></span>
+</div>
+</div>
+</header>
+<nav class="abas">
+<button data-aba="pdfs" class="ativo">📄 Materiais</button>
+<button data-aba="trilha">🎁 Bónus: Jogos</button>
+<button data-aba="conquistas">🏆 Conquistas</button>
+</nav>
+<main>
+<div id="abaPdfs"></div>
+<div id="abaTrilha" class="oculto"></div>
+<div id="abaConquistas" class="oculto"></div>
+</main>
+</section>
+<!-- ============ LIÇÃO ============ -->
+<section id="licao" class="oculto">
+<div class="licao-topo">
+<button class="fechar" id="btFechar">✕</button>
+<div class="prog-licao"><i id="lProg"></i></div>
+<div class="combo" id="lCombo"></div>
+</div>
+<div class="licao-corpo" id="lCorpo"></div>
+<div class="licao-rodape" id="lRodape">
+<div class="in">
+<div class="feedback" id="lFeedback"></div>
+<button class="btn" id="btVerificar" disabled>Verificar</button>
+</div>
+</div>
+</section>
+<section id="resultado" class="oculto"><div class="res-card" id="resCard"></div></section>
+<div id="toast"></div>
+<canvas id="confetes"></canvas>
+<script src="/acesso/config.js"></script>
+<script src="/acesso/app.js"></script>
+</body></html>
