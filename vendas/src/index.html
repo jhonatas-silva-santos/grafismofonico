@@ -6,7 +6,8 @@
 <!-- Rastreamento avançado (Sentinel): primeiro script da página para o PageView sair o mais cedo possível. Ele carrega o pixel 1164106139350670. -->
 <script>(function(s,e,n,t,i){s[n]=s[n]||function(){(s[n].q=s[n].q||[]).push(arguments)};var js=e.createElement('script');js.async=1;js.src=t+'?tid='+i;e.head.appendChild(js)})(window,document,'sentinel','https://track.acessoreservado.site/api/t/tracker.js','383f57c5-13b6-4d8b-8f04-efdd4e6e1744');</script>
 <link rel="preconnect" href="https://track.acessoreservado.site">
-<link rel="preconnect" href="https://connect.facebook.net">
+<!-- O rastreamento usa o fbevents.js da Meta: começa a baixar já, em vez de esperar o tracker pedir. -->
+<link rel="preload" as="script" href="https://connect.facebook.net/en_US/fbevents.js">
 <link rel="preload" as="image" href="img/mockup-kit-v3-sm.webp" media="(max-width:600px)" fetchpriority="high">
 <link rel="preload" as="image" href="img/mockup-kit-v3.webp" media="(min-width:601px)" fetchpriority="high">
 <link rel="preload" href="fonts/sora-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -308,7 +309,7 @@ html,body{overflow-x:hidden}</style>
 <section class="b5" id="b5"><div class="wrap">
   <h2 class="h2">Por isso precisas do <span data-cfg="produtoNome"></span>…</h2>
   <div class="split">
-    <div><img src="img/mockup-kit-v3.webp" srcset="img/mockup-kit-v3-sm.webp 600w, img/mockup-kit-v3.webp 1200w" sizes="(max-width:600px) 100vw, 768px" width="1200" height="675" loading="lazy" decoding="async" alt="Fichas do kit impressas e num tablet e telemóvel"></div>
+    <div><picture><source media="(max-width:600px)" srcset="img/mockup-kit-v3-sm.webp"><img src="img/mockup-kit-v3.webp" width="1200" height="675" loading="lazy" decoding="async" alt="Fichas do kit impressas e num tablet e telemóvel"></picture></div>
     <img class="photo" src="img/foto-b5.webp" width="600" height="956" loading="lazy" decoding="async" alt="Crianças a fazer as fichas de leitura">
   </div>
   <p class="intro">Cada atividade do <span data-cfg="produtoNome"></span> foi cuidadosamente criada para:</p>

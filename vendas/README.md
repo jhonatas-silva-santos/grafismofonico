@@ -16,7 +16,9 @@ O conteúdo de `src/` é o que vai para o ar (a raiz do site).
 
 - Rastreamento avançado (Sentinel → pixel 1164106139350670) é o primeiro script do `<head>`,
   para o PageView sair o mais cedo possível (antes só começava depois do app.js).
+- `fbevents.js` da Meta pré-carregado no `<head>` (o PageView sai ~0,75 s mais cedo em 4G).
 - Imagem do topo pré-carregada; no celular baixa a versão de 600 px (30 KB) em vez da de 1200 px (84 KB).
+  A segunda imagem do mockup (bloco 5) reaproveita a mesma versão no celular.
 - CSS dentro do HTML; `config.js` e `app.js` com `defer` (não bloqueiam a página).
 - Clarity carrega só depois da página terminar de abrir.
 - Cache de 7 dias para imagens/fontes e 1 hora para CSS/JS (`src/vercel.json`).
