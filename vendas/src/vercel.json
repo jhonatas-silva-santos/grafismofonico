@@ -1,0 +1,38 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/(img|fonts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/favicon.ico",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/acesso", "destination": "https://grafismofonico-membros.vercel.app/acesso/" },
+    { "source": "/acesso/", "destination": "https://grafismofonico-membros.vercel.app/acesso/" },
+    { "source": "/acesso/:path+", "destination": "https://grafismofonico-membros.vercel.app/acesso/:path+" },
+    { "source": "/acesso-completo", "destination": "https://grafismofonico-membros.vercel.app/acesso-completo/" },
+    { "source": "/acesso-completo/", "destination": "https://grafismofonico-membros.vercel.app/acesso-completo/" }
+  ]
+}

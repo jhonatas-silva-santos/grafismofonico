@@ -1,0 +1,23 @@
+window.SITE_CONFIG = {
+  "avisoCookies": false,
+  "clarityId": "zdslwatei9",
+  "sentinelUrl": "https://track.acessoreservado.site/api/t/tracker.js",
+  "sentinelTid": "383f57c5-13b6-4d8b-8f04-efdd4e6e1744",
+  "produtoNome": "Kit de Atividades de Grafismo Fónico",
+  "preco": "7,90 €",
+  "upsellNome": "Kit de Atividades de Grafismo Fónico 2: Sílabas Difíceis e Primeiros Textos",
+  "precoUpsell": "29 €",
+  "checkoutVenda": "https://pay.hotmart.com/X108500732X?checkoutMode=10",
+  "checkoutUpsell": "https://pay.hotmart.com/O108500810E?checkoutMode=10",
+  "upsellRecusaUrl": "obrigado.html",
+  "upsellDelaySegundos": 0,
+  "pixelId": "PREENCHER_ID_PIXEL",
+  "suporteEmail": "rr.suportesac@gmail.com",
+  "vendedor": "Inês Ferreira",
+  "videoVslUrl": "",
+  "videoUpsellUrl": "",
+  "livroReclamacoes": null,
+  "ralEntidade": "",
+  "legalData": "",
+  "termoNivel": "Nível"
+};
