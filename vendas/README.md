@@ -21,6 +21,8 @@ O conteúdo de `src/` é o que vai para o ar (a raiz do site).
   A segunda imagem do mockup (bloco 5) reaproveita a mesma versão no celular.
 - CSS dentro do HTML; `config.js` e `app.js` com `defer` (não bloqueiam a página).
 - Clarity carrega só depois da página terminar de abrir.
+- Fonte provisória ("Sora Fallback": Arial no iPhone/PC, Roboto no Android) ajustada ao tamanho da Sora,
+  e título com `text-wrap:balance`: o texto não pula quando a Sora chega (CLS 0,13 → 0,015 no teste).
 - Cache de 7 dias para imagens/fontes e 1 hora para CSS/JS (`src/vercel.json`).
 - Se um dia ligar o aviso de cookies (`avisoCookies: true`), o script do Sentinel no `<head>`
   precisa passar a respeitar o consentimento.
