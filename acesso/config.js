@@ -36,8 +36,8 @@ window.CONFIG = {
       ]}
     ]
   },
-  // Página de compra do Kit 2 (aparece para quem só tem o Kit 1)
-  linkUpsell: "https://pay.hotmart.com/O108500810E?checkoutMode=10",
+  // Botão de compra do Kit 2 para quem só tem o Kit 1. Vazio = sem botão (Kit 2 desligado em 20/11/2026).
+  linkUpsell: "",
   precoUpsell: "29 €",
   suporteEmail: "rr.suportesac@gmail.com"
 };

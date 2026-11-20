@@ -146,7 +146,7 @@ function renderTrilha(){
     if(!liberado){
       h+=`<div class="cadeado"><div class="box"><div class="ic">🔒</div><h4>Continue a aventura!</h4>
         <p>Depois das sílabas simples, a criança aprende CH, LH, NH, RR, SS, sílabas complexas e lê os primeiros textos sozinha.</p>
-        <a class="btn rosa cheio" href="${CONFIG.linkUpsell}" target="_blank" rel="noopener">Desbloquear Kit 2 · ${CONFIG.precoUpsell}</a>
+        ${CONFIG.linkUpsell?`<a class="btn rosa cheio" href="${CONFIG.linkUpsell}" target="_blank" rel="noopener">Desbloquear Kit 2 · ${CONFIG.precoUpsell}</a>`:""}
         <p style="margin:10px 0 0;font-size:12px">Já comprou? Use o link de acesso do e-mail do Kit 2.</p></div></div>`;
     }
     h+=`<div class="conteudo-bloq">`;
@@ -176,7 +176,7 @@ function renderPdfs(){
     h+=`<div class="pdf-card ${kit.id}"><h3>${kit.icone} ${kit.nome}</h3>`;
     if(!lib){
       h+=`<p style="color:var(--suave);font-weight:600;font-size:14px;margin:6px 0 12px">🔒 Sílabas difíceis (CH, LH, NH, RR, SS…) e primeiros textos. Não faz parte do seu acesso.</p>
-      <a class="btn rosa" href="${CONFIG.linkUpsell}" target="_blank" rel="noopener">Desbloquear Kit 2 · ${CONFIG.precoUpsell}</a></div>`;return;
+      ${CONFIG.linkUpsell?`<a class="btn rosa" href="${CONFIG.linkUpsell}" target="_blank" rel="noopener">Desbloquear Kit 2 · ${CONFIG.precoUpsell}</a>`:""}</div>`;return;
     }
     if(!grupos.length)h+=`<p style="color:var(--suave);font-weight:600;font-size:14px;margin-top:8px">⏳ Os materiais deste kit estão a ser preparados e aparecem aqui em breve.</p>`;
     grupos.forEach((g,gi)=>{
