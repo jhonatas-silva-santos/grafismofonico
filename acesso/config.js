@@ -30,7 +30,11 @@ window.CONFIG = {
         { nome: "Manuscrita · Nível 1 · Palavras de 2 sílabas", pag: 33, arq: "/acesso/pdfs/manuscrita/Manuscrita_Nivel-1_Palavras-de-2-silabas.pdf" },
         { nome: "Manuscrita · Nível 2 · Palavras de 3 sílabas", pag: 33, arq: "/acesso/pdfs/manuscrita/Manuscrita_Nivel-2_Palavras-de-3-silabas.pdf" },
         { nome: "Manuscrita · Nível 3 · Palavras de 4 sílabas", pag: 33, arq: "/acesso/pdfs/manuscrita/Manuscrita_Nivel-3_Palavras-de-4-silabas.pdf" },
-        { nome: "Manuscrita · Nível 4 · Frases curtas", pag: 18, arq: "/acesso/pdfs/manuscrita/Manuscrita_Nivel-4_Frases-curtas.pdf" }
+        { nome: "Manuscrita · Nível 4 · Frases curtas", pag: 18, arq: "/acesso/pdfs/manuscrita/Manuscrita_Nivel-4_Frases-curtas.pdf" },
+        { nome: "Ler em manuscrita · Nível 1", pag: 33, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-1_Palavras-de-2-silabas.pdf" },
+        { nome: "Ler em manuscrita · Nível 2", pag: 33, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-2_Palavras-de-3-silabas.pdf" },
+        { nome: "Ler em manuscrita · Nível 3", pag: 33, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-3_Palavras-de-4-silabas.pdf" },
+        { nome: "Ler em manuscrita · Nível 4", pag: 18, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-4_Frases-curtas.pdf" }
       ]}
     ],
     // Kit 2 (upsell) — só aparece em /acesso-completo
