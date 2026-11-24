@@ -13,7 +13,9 @@ window.CONFIG = {
         { nome: "Nível 2 · Palavras de 3 sílabas", pag: 34, arq: "/acesso/pdfs/kit1/Nivel-2_Palavras-de-3-silabas.pdf" },
         { nome: "Nível 3 · Palavras de 4 sílabas", pag: 34, arq: "/acesso/pdfs/kit1/Nivel-3_Palavras-de-4-silabas.pdf" },
         { nome: "Nível 4 · Frases curtas", pag: 19, arq: "/acesso/pdfs/kit1/Nivel-4_Frases-curtas.pdf" },
-        { nome: "Atividades fónicas em letra de imprensa maiúscula", pag: 29, arq: "/acesso/pdfs/kit1/Atividades-fonicas-em-letra-de-imprensa-maiuscula.pdf" }
+        { nome: "Atividades fónicas em letra de imprensa maiúscula", pag: 29, arq: "/acesso/pdfs/kit1/Atividades-fonicas-em-letra-de-imprensa-maiuscula.pdf" },
+        // novo (24/11/2026) — fica no fim do grupo para não mexer no progresso já guardado (chaves por posição)
+        { nome: "Fichas de Letra Manuscrita", desc: "Novo · aprender a escrever em letra de mão", pag: 99, arq: "/acesso/pdfs/kit1/Fichas-de-Letra-Manuscrita.pdf" }
       ]},
       { grupo: "🎁 Bónus", itens: [
         { nome: "Caderno Alfabeto com Imagens", pag: 28, arq: "/acesso/pdfs/kit1/Bonus-01_Caderno-Alfabeto-com-Imagens.pdf" },
