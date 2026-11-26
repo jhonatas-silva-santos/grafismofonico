@@ -35,6 +35,9 @@ window.CONFIG = {
         { nome: "Ler em manuscrita · Nível 2", pag: 33, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-2_Palavras-de-3-silabas.pdf" },
         { nome: "Ler em manuscrita · Nível 3", pag: 33, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-3_Palavras-de-4-silabas.pdf" },
         { nome: "Ler em manuscrita · Nível 4", pag: 18, arq: "/acesso/pdfs/manuscrita/Ler-Manuscrita_Nivel-4_Frases-curtas.pdf" }
+      ]},
+      { grupo: "🎄 Especial Natal", itens: [
+        { nome: "Fichas de Natal · 24 palavras (1 a 24 de dezembro)", pag: 28, arq: "/acesso/pdfs/natal/Fichas-de-Natal.pdf" }
       ]}
     ],
     // Kit 2 (upsell) — só aparece em /acesso-completo
